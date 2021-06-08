@@ -1,0 +1,41 @@
+server:
+  port: ${SERVER_PORT:8084}
+configuration:
+  kafka:
+    bootstrapAddress: ${KAFKA_HOST:192.168.49.2}:${KAFKA_PORT:31885}
+    consumer:
+      autoOffsetReset: latest
+      groupId: ground-data-core-group
+    topics:
+      sourceTopic:
+        name: ${GROUND_SOURCES_TOPIC:data-source-topic}
+        partitions: ${GROUND_SOURCES_TOPIC_PARTITIONS:1}
+        replicationFactor: ${GROUND_SOURCES_TOPIC_REPLICAS:1}
+      stationsTopic:
+        name: ${GROUND_STATIONS_TOPIC:data-stations-topic}
+        partitions: ${GROUND_STATIONS_TOPIC_PARTITIONS:1}
+        replicationFactor: ${GROUND_STATIONS_TOPIC_REPLICAS:1}
+  mongo:
+    databaseName: ${GROUND_DATABASE_NAME:ground-db}
+    autoCreateIndices: true
+    host: ${GROUND_DATABASE_HOST:192.168.49.2}
+    port: ${GROUND_DATABASE_PORT:30316}
+    credentials:
+      username: ${GROUND_DATABASE_USER:ground-user}
+      password: ${GROUND_DATABASE_PASSWORD:ground-user-password}
+  redis:
+    host: ${REDIS_CACHE_HOST:192.168.49.2}
+    port: ${REDIS_CACHE_PORT:32606}
+    credentials:
+        password: ${REDIS_CACHE_PASSWORD:redis-cache-password}
+  cache:
+    sources:
+      initialDelay: 2
+      interval: 60
+      unit: MINUTES
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: ${KAFKA_HOST:192.168.49.2}:${KAFKA_PORT:31885}
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer

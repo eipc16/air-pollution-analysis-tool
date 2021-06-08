@@ -1,0 +1,21 @@
+type Query {
+    groundSources: [GroundDataSource!]!
+    groundParameters(source: String!): [GroundDataParameter!]!
+    satelliteSources: [SatelliteDataSource!]!
+    satelliteParameters(source: String!): [SatelliteDataParameter!]!
+    models: [Models!]!
+    stations(source: String!, parameter: String, bottomLatitude: Float!, bottomLongitude: Float!, upperLatitude: Float!, upperLongitude: Float!, page: Int!, size: Int!): GroundStationPage!
+    orders(page: Int!, size: Int!): OrdersPage!
+    order(id: ID!): Order
+    groundData(orderId: String!, page: Int!, size: Int!): GroundMeasurementPage
+    satelliteData(orderId: String!, page: Int!, size: Int!): SatelliteMeasurementPage
+    calculationRequests(orderId: String!): [CalculationRequest!]!
+    testData(calculationRequestId: String!, page: Int!, size: Int!): TestDataPage!
+    predictions(calculationRequestId: String!, page: Int!, size: Int!): SatellitePredictionPage!
+}
+
+type Mutation {
+    createOrder(orderRequest: OrderRequest!): Order
+    createCalculationRequest(calculationRequest: CalculationRequestInput!): CalculationRequest
+    removeOrder(orderId: String!): Boolean!
+}

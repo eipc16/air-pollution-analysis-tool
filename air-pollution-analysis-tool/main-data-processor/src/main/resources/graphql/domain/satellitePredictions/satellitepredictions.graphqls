@@ -1,0 +1,20 @@
+type SatellitePrediction implements Pageable {
+    id: ID!
+    day: Int!
+    month: Int!
+    year: Int!
+    hour: Int!
+    minute: Int!
+    latitude: Float!
+    longitude: Float!
+    predictions: Float!
+    value: Float!
+}
+
+type SatellitePredictionPage implements Pagination {
+    count: Int!
+    totalCount: Int!
+    page: Int!
+    totalPages: Int!
+    content: [SatellitePrediction!]!
+}

@@ -1,0 +1,11 @@
+interface Pageable {
+    id: ID!
+}
+
+interface Pagination {
+    count: Int!
+    totalCount: Int!
+    page: Int!
+    totalPages: Int!
+    content: [Pageable!]!
+}

@@ -1,0 +1,20 @@
+type GroundMeasurement implements Pageable {
+    id: ID!
+    location: String!
+    value: Float!
+    day: Int!
+    month: Int!
+    year: Int!
+    hour: Int!
+    minute: Int!
+    latitude: Float!
+    longitude: Float!
+}
+
+type GroundMeasurementPage implements Pagination {
+    count: Int!
+    totalCount: Int!
+    page: Int!
+    totalPages: Int!
+    content: [GroundMeasurement!]!
+}

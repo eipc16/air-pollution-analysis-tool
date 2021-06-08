@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: air-pollution-ui
+spec:
+  selector:
+    matchLabels:
+      run: air-pollution-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: air-pollution-ui
+    spec:
+      containers:
+      - name: air-pollution-ui
+        image: eipc16/air-pollution-analytics-ui:latest
+        env:
+          - name: MAIN_PROCESSOR_HOST_VAR
+            value: "main-processor"
+          - name: MAIN_PROCESSOR_PORT_VAR
+            value: "8080"
+        ports:
+        - containerPort: 80

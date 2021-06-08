@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculation-service
+spec:
+  selector:
+    matchLabels:
+      run: calculation-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: calculation-service
+    spec:
+      containers:
+      - name: calculation-service
+        image: eipc16/air-pollution-analytics-calculation-service:latest
+        env:
+          - name: SERVER_PORT
+            value: "5001"
+          - name: MAIN_DATABASE_NAME
+            value: "main-db"
+          - name: MAIN_DATABASE_HOST
+            value: "main-db-svc"
+          - name: MAIN_DATABASE_PORT
+            value: "27017"
+          - name: MAIN_DATABASE_USER
+            value: "main-user"
+          - name: MAIN_DATABASE_PASSWORD
+            value: "main-user-password"
+        ports:
+        - containerPort: 5001

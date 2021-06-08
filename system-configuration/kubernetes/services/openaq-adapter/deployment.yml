@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openaq-adapter
+spec:
+  selector:
+    matchLabels:
+      run: openaq-adapter
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: openaq-adapter
+    spec:
+      containers:
+      - name: openaq-adapter
+        image: eipc16/air-pollution-analytics-openaq-adapter:latest
+        env:
+          - name: SERVER_HOST
+            value: "openaq-adapter"
+          - name: SERVER_PORT
+            value: "8083"
+          - name: KAFKA_HOST
+            value: "climate-management-kafka-kafka-bootstrap"
+          - name: KAFKA_PORT
+            value: "9091"
+          - name: GROUND_SOURCES_TOPIC
+            value: "data-source-topic"
+          - name: GROUND_STATIONS_TOPIC
+            value: "data-stations-topic"
+        ports:
+        - containerPort: 8083

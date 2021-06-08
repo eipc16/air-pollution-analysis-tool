@@ -1,0 +1,22 @@
+type TestData implements Pageable {
+    id: ID!
+    day: Int!
+    month: Int!
+    year: Int!
+    hour: Int!
+    minute: Int!
+    latitude: Float!
+    longitude: Float!
+    predictions: Float!
+    satelliteMeasurement: Float!
+    trueMeasurement: Float!
+    date: OffsetDateTime!
+}
+
+type TestDataPage implements Pagination {
+    count: Int!
+    totalCount: Int!
+    page: Int!
+    totalPages: Int!
+    content: [TestData!]!
+}

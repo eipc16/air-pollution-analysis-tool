@@ -1,0 +1,15 @@
+type CalculationRequest implements Pageable {
+    id: ID!
+    distance: Int!
+    name: String!
+    model: String!
+    orderId: String!
+    createDate: OffsetDateTime!
+}
+
+input CalculationRequestInput {
+    name: String!
+    orderId: String!
+    model: String!
+    distance: Int!
+}

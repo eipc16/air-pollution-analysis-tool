@@ -1,0 +1,142 @@
+{
+    "SentinelAPI-O3": {
+        "credentials": {
+            "type": "file",
+            "path": "./config/sentinel_credentials.json"
+        },
+        "api_link": "https://s5phub.copernicus.eu/dhus",
+        "default": {
+            "time": {
+                "start": "2018-10-01",
+                "end": "2019-10-02"
+            },
+            "area": {
+                "type": "FeatureCollection",
+                "features": [{
+                    "type": "Feature",
+                    "properties": {},
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [-9.591064453125,
+                                    37.53150992479082
+                                ],
+                                [-7.4871826171875,
+                                    37.53150992479082
+                                ],
+                                [-7.4871826171875,
+                                    39.58875727696545
+                                ],
+                                [-9.591064453125,
+                                    39.58875727696545
+                                ],
+                                [-9.591064453125,
+                                    37.53150992479082
+                                ]
+                            ]
+                        ]
+                    }
+                }]
+            },
+            "platform_name": "Sentinel-5",
+            "product_type": "L2__O3____"
+        }
+    },
+    "ModisAPI-MOD04_L2": {
+        "credentials": {
+            "type": "file",
+            "path": "./config/modis_credentials.json"
+        },
+        "defaults": {
+            "time": {
+                "start": "2018-10-01",
+                "end": "2019-12-01"
+            },
+            "box": {
+                "bottom_left": {
+                    "latitude": 37.53150992479082,
+                    "longitude": -9.591064453125
+                },
+                "top_right": {
+                    "latitude": 39.58875727696545,
+                    "longitude": -7.4871826171875
+                }
+            },
+            "product_type": "MOD04_L2",
+            "collection": 61
+        }
+    },
+    "ModisAPI-MOD04_3K": {
+        "credentials": {
+            "type": "file",
+            "path": "./config/modis_credentials.json"
+        },
+        "defaults": {
+            "time": {
+                "start": "2018-10-01",
+                "end": "2019-12-01"
+            },
+            "box": {
+                "bottom_left": {
+                    "latitude": 37.53150992479082,
+                    "longitude": -9.591064453125
+                },
+                "top_right": {
+                    "latitude": 39.58875727696545,
+                    "longitude": -7.4871826171875
+                }
+            },
+            "product_type": "MOD04_3K",
+            "collection": 61
+        }
+    },
+    "ModisAPI-MCD19A2": {
+        "credentials": {
+            "type": "file",
+            "path": "./config/modis_credentials.json"
+        },
+        "defaults": {
+            "time": {
+                "start": "2018-10-01",
+                "end": "2019-12-01"
+            },
+            "box": {
+                "bottom_left": {
+                    "latitude": 37.53150992479082,
+                    "longitude": -9.591064453125
+                },
+                "top_right": {
+                    "latitude": 39.58875727696545,
+                    "longitude": -7.4871826171875
+                }
+            },
+            "product_type": "MCD19A2",
+            "collection": 6
+        }
+    },
+    "ModisAPI-MYD08_M3": {
+        "credentials": {
+            "type": "file",
+            "path": "./config/modis_credentials.json"
+        },
+        "defaults": {
+            "time": {
+                "start": "2018-10-01",
+                "end": "2019-12-01"
+            },
+            "box": {
+                "bottom_left": {
+                    "latitude": 37.53150992479082,
+                    "longitude": -9.591064453125
+                },
+                "top_right": {
+                    "latitude": 39.58875727696545,
+                    "longitude": -7.4871826171875
+                }
+            },
+            "product_type": "MYD08_M3",
+            "collection": 61
+        }
+    }
+}

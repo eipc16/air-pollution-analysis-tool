@@ -1,0 +1,17 @@
+/results
+/monthly
+/models
+/maps
+/logs
+/final_result
+/data_old
+/calculations
+/calcs
+ground.pkl
+
+calculation-service-core.iml
+#testing.py
+#testing2.py
+#prediction.py
+#parse.py
+#map.py

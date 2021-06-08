@@ -1,0 +1,7 @@
+configMapGenerator:
+- name: redis-configuration
+  files:
+  - redis-config
+resources:
+- deployment.yml
+- service.yml

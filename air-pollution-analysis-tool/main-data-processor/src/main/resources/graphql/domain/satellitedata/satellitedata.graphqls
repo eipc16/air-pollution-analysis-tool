@@ -1,0 +1,19 @@
+type SatelliteMeasurement implements Pageable {
+    id: ID!
+    value: Float!
+    day: Int!
+    month: Int!
+    year: Int!
+    hour: Int!
+    minute: Int!
+    latitude: Float!
+    longitude: Float!
+}
+
+type SatelliteMeasurementPage implements Pagination {
+    count: Int!
+    totalCount: Int!
+    page: Int!
+    totalPages: Int!
+    content: [SatelliteMeasurement!]!
+}

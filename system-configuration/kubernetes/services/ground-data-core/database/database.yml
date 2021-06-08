@@ -1,0 +1,34 @@
+apiVersion: mongodbcommunity.mongodb.com/v1
+kind: MongoDBCommunity
+metadata:
+  name: ground-db
+  labels:
+    app: ground-db
+spec:
+  members: 1
+  type: ReplicaSet
+  version: "4.2.6"
+  security:
+    authentication:
+      modes: ["SCRAM"]
+  users:
+    - name: ground-admin
+      db: admin
+      passwordSecretRef:
+        name: ground-admin-password
+      roles:
+        - name: clusterAdmin
+          db: admin
+        - name: userAdminAnyDatabase
+          db: admin
+      scramCredentialsSecretName: scram-ground-user
+    - name: ground-user
+      db: ground-db
+      passwordSecretRef:
+        name: ground-user-password
+      roles:
+        - name: userAdminAnyDatabase
+          db: ground-db
+        - name: readWrite
+          db: ground-db
+      scramCredentialsSecretName: scram-ground-user

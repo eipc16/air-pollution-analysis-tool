@@ -1,0 +1,43 @@
+type Order implements Pageable {
+    id: ID!
+    name: String!
+    distance: Int!
+    isGroundDataReady: Boolean!
+    isSatelliteDataReady: Boolean!
+    groundSource: String!
+    groundParameter: String!
+    satelliteSource: String!
+    satelliteParameter: String!
+    createDate: OffsetDateTime!
+    lastUpdatedDate: OffsetDateTime
+    startDate: OffsetDateTime!
+    endDate: OffsetDateTime!
+    bottomLatitude: Float!
+    bottomLongitude: Float!
+    upperLatitude: Float!
+    upperLongitude: Float!
+}
+
+type OrdersPage implements Pagination {
+    count: Int!
+    totalCount: Int!
+    page: Int!
+    totalPages: Int!
+    content: [Order!]!
+}
+
+input OrderRequest {
+    name: String!
+    groundSource: String!
+    groundParameter: String!
+    satelliteSource: String!
+    satelliteParameter: String!
+    model: String
+    distance: Int
+    dateFrom: String!
+    dateTo: String!
+    bottomLatitude: Float!
+    upperLatitude: Float!
+    bottomLongitude: Float!
+    upperLongitude: Float!
+}

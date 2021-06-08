@@ -1,0 +1,25 @@
+type GroundDataParameter {
+    name: String!
+}
+
+type GroundDataSource implements Pageable {
+    id: ID!
+    name: String!
+    fullName: String!
+    dataUrl: String!
+    heartBeatUrl: String!
+    reindexUrl: String!
+    reindexStatusUrl: String!
+    parameters: [GroundDataParameter!]!
+    minDate: Date!
+    maxDate: Date!
+    lastUpdated: OffsetDateTime!
+}
+
+type SatelliteDataParameter {
+    name: String!
+}
+
+type SatelliteDataSource {
+    name: String!
+}

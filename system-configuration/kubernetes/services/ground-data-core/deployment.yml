@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ground-data-core
+spec:
+  selector:
+    matchLabels:
+      run: ground-data-core
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: ground-data-core
+    spec:
+      containers:
+      - name: ground-data-core
+        image: eipc16/air-pollution-analytics-ground-data-core:latest
+        env:
+          - name: KAFKA_HOST
+            value: "climate-management-kafka-kafka-bootstrap"
+          - name: KAFKA_PORT
+            value: "9091"
+          - name: SERVER_PORT
+            value: "8084"
+          - name: GROUND_DATABASE_NAME
+            value: "ground-db"
+          - name: GROUND_DATABASE_HOST
+            value: "ground-db-svc"
+          - name: GROUND_DATABASE_PORT
+            value: "27017"
+          - name: GROUND_DATABASE_USER
+            value: "ground-user"
+          - name: GROUND_DATABASE_PASSWORD
+            value: "ground-user-password"
+          - name: GROUND_SOURCES_TOPIC
+            value: "data-source-topic"
+          - name: GROUND_STATIONS_TOPIC
+            value: "data-stations-topic"
+          - name: REDIS_CACHE_HOST
+            value: "redis-cache-svc"
+          - name: REDIS_CACHE_PORT
+            value: "32606"
+          - name: REDIS_CACHE_PASSWORD
+            value: "redis-cache-password"
+        ports:
+        - containerPort: 8084

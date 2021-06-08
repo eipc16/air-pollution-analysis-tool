@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: main-processor
+spec:
+  selector:
+    matchLabels:
+      run: main-processor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: main-processor
+    spec:
+      containers:
+      - name: main-processor
+        image: eipc16/air-pollution-analytics-main-processor:latest
+        env:
+          - name: SERVER_PORT
+            value: "8080"
+          - name: KAFKA_HOST
+            value: "climate-management-kafka-kafka-bootstrap"
+          - name: KAFKA_PORT
+            value: "9091"
+          - name: GROUND_MEASUREMENTS_TOPIC
+            value: "ground-measurements"
+          - name: SATELLITE_MEASUREMENTS_TOPIC
+            value: "satellite-measurements"
+          - name: MAIN_DATABASE_NAME
+            value: "main-db"
+          - name: MAIN_DATABASE_HOST
+            value: "main-db-svc"
+          - name: MAIN_DATABASE_PORT
+            value: "27017"
+          - name: MAIN_DATABASE_USER
+            value: "main-user"
+          - name: MAIN_DATABASE_PASSWORD
+            value: "main-user-password"
+          - name: GROUND_DATA_CORE_HOST
+            value: "ground-data-core"
+          - name: GROUND_DATA_CORE_PORT
+            value: "8004"
+          - name: SATELLITE_DATA_CORE_HOST
+            value: "satellite-data-core"
+          - name: SATELLITE_DATA_CORE_PORT
+            value: "5000"
+          - name: CALCULATION_SERVICE_CORE_HOST
+            value: "calculation-service"
+          - name: CALCULATION_SERVICE_CORE_PORT
+            value: "5001"
+        ports:
+        - containerPort: 8080

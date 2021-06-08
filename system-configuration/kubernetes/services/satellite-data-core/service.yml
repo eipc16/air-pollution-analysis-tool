@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: satellite-data-core
+  labels:
+    run: satellite-data-core
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+  selector:
+    run: satellite-data-core

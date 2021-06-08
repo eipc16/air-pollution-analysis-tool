@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: satellite-data-core
+spec:
+  selector:
+    matchLabels:
+      run: satellite-data-core
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: satellite-data-core
+    spec:
+      containers:
+      - name: satellite-data-core
+        image: eipc16/air-pollution-analytics-satellite-data-core:latest
+        env:
+          - name: KAFKA_HOST
+            value: "climate-management-kafka-kafka-bootstrap"
+          - name: KAFKA_PORT
+            value: "9091"
+          - name: SERVER_PORT
+            value: "5000"
+        ports:
+        - containerPort: 5000

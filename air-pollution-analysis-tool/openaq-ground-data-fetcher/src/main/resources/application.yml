@@ -1,0 +1,25 @@
+server:
+  port: ${SERVER_PORT:8083}
+configuration:
+  kafka:
+    bootstrapAddress: ${KAFKA_HOST:192.168.49.2}:${KAFKA_PORT:31885}
+    topics:
+      sourceTopic: ${GROUND_SOURCES_TOPIC:data-source-topic}
+      stationsTopic: ${GROUND_STATIONS_TOPIC:data-stations-topic}
+  source:
+    name: OpenAQ
+    fullName: OpenAQ - Open Air Quality Index
+    scheme: ${SERVER_PROTOCOL:http}
+    host: ${SERVER_HOST:localhost}
+    port: ${SERVER_PORT:8083}
+    endpoints:
+      data: /data
+      heartBeat: /health
+      reindex: /reindex
+      reindexStatus: /reindex/status
+  openaq:
+    baseUrl: https://api.openaq.org
+    endpoints:
+      locations: /v2/locations
+      measurements: /v2/measurements
+      parameters: /v2/parameters

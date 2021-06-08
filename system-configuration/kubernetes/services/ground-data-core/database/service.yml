@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ground-db-external-svc
+spec:
+  selector:
+    app: ground-db-svc
+  type: NodePort
+  externalTrafficPolicy: Local
+  ports:
+    - name: client
+      port: 27017
+      targetPort: 27017
+      nodePort: 30316
+      protocol: TCP

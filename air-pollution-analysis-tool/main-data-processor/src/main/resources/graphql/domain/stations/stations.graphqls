@@ -1,0 +1,16 @@
+type GroundStation implements Pageable {
+    id: ID!
+    name: String!
+    longitude: Float!
+    latitude: Float!
+    parameters: [String!]!
+#    source: GroundDataSource!
+}
+
+type GroundStationPage implements Pagination {
+    count: Int!
+    totalCount: Int!
+    page: Int!
+    totalPages: Int!
+    content: [GroundStation!]!
+}
