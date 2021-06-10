@@ -1,0 +1,202 @@
+{
+    "nav": {
+        "title": "Air pollution analysis tool",
+        "pages": {
+            "home": "Home",
+            "orders": "Orders"
+        },
+        "actions": {
+            "orderDetails": "Show order details",
+            "delete": "Remove order",
+            "refresh": "Refresh Data"
+        }
+    },
+    "tables": {
+        "orders": "Orders"
+    },
+    "station": {
+        "longitude": "Longitude",
+        "latitude": "Latitude"
+    },
+    "order": {
+        "name": "Order Name",
+        "id": "Order ID",
+        "groundSource": "Ground Data Source",
+        "groundParameter": "Ground Data Parameter",
+        "satelliteSource": "Satellite Data Source",
+        "satelliteParameter": "Satellite Data Parameter",
+        "model": "Calculation Model",
+        "dateFrom": "Calculation start date",
+        "dateTo": "Calculation end date",
+        "startDate": "Order start date",
+        "endDate": "Order end date",
+        "distance": "Distance to ground station",
+        "bottomLongitude": "Bottom Longitude (South-West)",
+        "bottomLatitude": "Bottom Latitude (South-West)",
+        "upperLatitude": "Upper Latitude (North-East)",
+        "upperLongitude": "Upper Longitude (North-East)",
+        "submit": "Place order",
+        "createDate": "Order (Created)",
+        "lastUpdatedDate": "Order (Last Updated)",
+        "isGroundDataReady": "Ground data ready?",
+        "isSatelliteDataReady": "Satellite data ready?",
+        "groundData": "Ground Data",
+        "satelliteData": "Satellite Data",
+        "subDetails": {
+            "groundData": "Ground Data",
+            "satelliteData": "Satellite Data",
+            "testData": "Test Data",
+            "graphs": "Charts",
+            "prediction": "Prediction Results"
+        }
+    },
+    "calculationRequest": {
+        "modal": {
+            "open": "Request calculation",
+            "header": {
+                "title": "Request calculation for order: {{order}}"
+            },
+            "body": {
+                "fields": {
+                    "name": "Calculation request name",
+                    "model": "Calculation model",
+                    "distance": "Minimal distance to ground station"
+                }
+            },
+            "footer": {
+                "submit": "Create request"
+            }
+        }
+    },
+    "values": {
+        "groundSource": {
+            "OpenAQ": "OpenAQ (Open Air Quality)"
+        },
+        "groundParameter": {
+            "pm25": "PM2.5",
+            "pm10": "PM10",
+            "pm1": "PM1",
+            "temperature": "Temperature",
+            "bc": "Boron carbide",
+            "no": "Nitric oxide (NO)",
+            "o3": "Ozone (O3)",
+            "co": "Carbon monoxide (CO)",
+            "pressure": "Pressure",
+            "co2": "Carbon dioxide (CO2)",
+            "no2": "Nitrogen dioxide (NO2)",
+            "relativehumidity": "Relative Humidity",
+            "um010": "UM010",
+            "nox": "Nitrogen oxides (NOx)",
+            "so2":  "Sulfur dioxide (SO2)",
+            "um025": "UM025",
+            "um100": "UM100"
+        },
+        "satelliteSource": {
+            "MOD04_3K": "MODIS (MOD04_3K)"
+        },
+        "satelliteParameter": {
+            "Optical_Depth_Land_And_Ocean": "Optical Depth (Land & Ocean)"
+        },
+        "model": {
+            "LR": "Linear Regression",
+            "MLPR": "Multi-Layer Perceptron",
+            "RandomForestRegressor": "Random Forest Regressor",
+            "ExtraTreesRegressor": "Extra Trees Regressor",
+            "ElasticNet": "Elastic Net"
+        }
+    },
+    "groundData": {
+        "id": "ID",
+        "year": "Year",
+        "month": "Month",
+        "day": "Day",
+        "hour": "Hour",
+        "minute": "Minute",
+        "location": "Location",
+        "longitude": "Longitude",
+        "latitude": "Latitude",
+        "value": "Value",
+        "actions": {
+            "download": "Download Ground Data"
+        }
+    },
+    "satelliteData": {
+        "id": "ID",
+        "year": "Year",
+        "month": "Month",
+        "day": "Day",
+        "hour": "Hour",
+        "minute": "Minute",
+        "longitude": "Longitude",
+        "latitude": "Latitude",
+        "value": "Value",
+        "actions": {
+            "download": "Download Satellite Data"
+        }
+    },
+    "testData": {
+        "id": "ID",
+        "year": "Year",
+        "month": "Month",
+        "day": "Day",
+        "hour": "Hour",
+        "minute": "Minute",
+        "location": "Location",
+        "longitude": "Longitude",
+        "latitude": "Latitude",
+        "satelliteMeasurement": "Satellite Measurement",
+        "trueMeasurement": "Ground Measurement",
+        "predictions": "Model Prediction",
+        "actions": {
+            "download": "Download Data"
+        }
+    },
+    "predictions": {
+        "id": "ID",
+        "year": "Year",
+        "month": "Month",
+        "day": "Day",
+        "hour": "Hour",
+        "minute": "Minute",
+        "location": "Location",
+        "longitude": "Longitude",
+        "latitude": "Latitude",
+        "value": "Satellite Measurement",
+        "predictions": "Model Prediction",
+        "actions": {
+            "download": "Download Data"
+        }
+    },
+    "charts": {
+        "MSE": {
+            "title": "Mean square error by calculation request",
+            "x": "Calculation Request",
+            "y": "Mean square error"
+        },
+        "trueVSPrediction": {
+            "title": "True values by predictions",
+            "x": "Predictions ({{parameter}})",
+            "y": "True values ({{parameter}})"
+        },
+        "squareErrorPerPrediction": {
+            "title": "Mean square error by prediction value",
+            "x": "Prediction ({{parameter}})",
+            "y": "Mean square error"
+        },
+        "satelliteMeasurementsLineChart": {
+            "title": "Satellite measurements by time",
+            "x": "Time",
+            "y": "{{parameter}}"
+        },
+        "groundMeasurementsLineChart": {
+            "title": "Ground measurements by time",
+            "x": "Time",
+            "y": "{{parameter}}"
+        },
+        "predictions": {
+            "title": "Predictions by time",
+            "x": "Time",
+            "y": "Prediction ({{parameter}})"
+        }
+    }
+}
