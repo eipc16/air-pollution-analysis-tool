@@ -1,0 +1,171 @@
+.order--details {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+
+  & > .order--info {
+    width: 70%;
+    height: 100%;
+    font-size: smaller;
+    display: flex;
+    flex-direction: column;
+
+    & > .order--attributes {
+      width: 100%;
+      height: 50%;
+    }
+
+    & > .order--map {
+      flex-grow: 1;
+
+      & > .order--details--map {
+        height: 40vh;
+      }
+    }
+  }
+
+  & > .order--more {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+.order--attributes {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+
+  .order--attribute {
+    display: flex;
+    padding: 15px;
+    height: 60px;
+    width: 50%;
+    justify-content: space-between;
+
+    &:nth-child(even) {
+      background-color: rgba(0.1, 0.1, 0.1, 0.02);
+    }
+
+    &--label {
+      font-weight: bolder;
+    }
+
+    &--value {
+
+    }
+  }
+}
+
+.icon-spinner {
+  animation: spin-animation 1.5s infinite;
+  display: inline-block;
+}
+
+@keyframes spin-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.selector--header {
+  display: flex;
+
+  border-radius: 50px;
+
+  & > .selector {
+    padding: 15px;
+    position: relative;
+
+    &.active {
+      background-color: whitesmoke;
+    }
+
+    &:hover::after {
+      width: 100%;
+      height: 1px;
+    }
+
+    &::after {
+      background-color: lightgray;
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      transition: width 0.2s;
+    }
+  }
+}
+
+.grid {
+  height: 100%;
+  width: 100%;
+}
+
+.selector--content {
+  flex-grow: 1;
+  overflow-y: hidden;
+}
+
+.order--grid--wrapper {
+  height: 95%;
+}
+
+.order--grid--header {
+  padding: 5px;
+}
+
+//.charts {
+//  //margin-bottom: 150px;
+//  height: 100vh;
+//}
+
+.charts {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  //flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.order--charts--wrapper {
+  overflow-y: scroll;
+}
+
+.order--grid--header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.context--action--link {
+  //padding: 5px;
+}
+
+.context--action--button {
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.order--grid--header--selector {
+  flex-grow: 1;
+  padding: 5px;
+}
+
+.order--actions {
+  display: flex;
+  padding: 5px;
+}
+
+.inactiveLink {
+  pointer-events: none;
+  cursor: default;
+}
